@@ -10,7 +10,4 @@ def solution(numLog):
             answer += "d"
         else :
             answer += "a"
-        
-        if i == len(numLog)-1 :
-            break
     return answer
