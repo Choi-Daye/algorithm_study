@@ -1,6 +1,5 @@
 def solution(arr, queries):
-    for query in queries :
-        s,e,k = query
+    for s,e,k in queries :
         i = s
         while i <= e :
             if i % k == 0 :
