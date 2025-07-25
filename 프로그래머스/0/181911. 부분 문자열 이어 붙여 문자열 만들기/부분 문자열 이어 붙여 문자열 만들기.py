@@ -1,7 +1,7 @@
 def solution(my_strings, parts):
     answer = ''
     
-    for i in range(len(my_strings)) :
-        answer += my_strings[i][parts[i][0] : parts[i][1]+1]
+    for word, (i, j) in zip(my_strings, parts) :
+        answer += word[i:j+1]
     
     return answer
