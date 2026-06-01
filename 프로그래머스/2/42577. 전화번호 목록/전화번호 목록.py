@@ -1,6 +1,12 @@
 def solution(phone_book):
-    phone_book.sort()
-    for p1, p2 in zip(phone_book, phone_book[1:]):
-        if p2.startswith(p1):
-            return False
+    hash = {}
+    for num in phone_book:
+        hash[num] = True
+    
+    for num in phone_book:
+        search = ""
+        for n in num[:-1]:  # 자기자신 제외
+            search += n
+            if search in hash:
+                return False
     return True
