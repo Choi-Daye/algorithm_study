@@ -1,9 +1,6 @@
 def solution(phone_book):
     phone_book.sort()
-    
-    for i, head_num in enumerate(phone_book):
-        if i == len(phone_book)-1:
-            break
-        if head_num == phone_book[i+1][:len(head_num)]:
+    for p1, p2 in zip(phone_book, phone_book[1:]):
+        if p2.startswith(p1):
             return False
     return True
