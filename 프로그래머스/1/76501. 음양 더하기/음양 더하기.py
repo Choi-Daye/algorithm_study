@@ -1,8 +1,2 @@
 def solution(absolutes, signs):
-    answer = 0
-    for i, n in enumerate(absolutes):
-        if signs[i]:
-            answer += n
-        else:
-            answer -= n
-    return answer
+    return sum(n if sign else -n for n, sign in zip(absolutes, signs))
