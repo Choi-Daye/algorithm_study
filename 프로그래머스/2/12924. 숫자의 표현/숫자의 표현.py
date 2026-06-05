@@ -1,15 +1,18 @@
 def solution(n):
-    num = [i for i in range(n+1)]
+    cnt = 0
+    answer = 1
     start, end = 1, 1
-    answer = 0
     
-    while start != n and end != n:
-        if sum(num[start:end+1]) < n:
+    while end <= n:
+        if answer < n:
             end += 1
-        elif sum(num[start:end+1]) > n:
+            answer += end
+        elif answer > n:
+            answer -= start
             start += 1
         else:
-            answer += 1
+            cnt += 1
+            answer -= start
             start += 1
-            
-    return answer + 1
+    
+    return cnt
