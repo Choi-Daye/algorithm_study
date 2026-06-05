@@ -1,6 +1,4 @@
 def solution(s):
-    answer = -1
-
     stack = []
     
     for char in s:
