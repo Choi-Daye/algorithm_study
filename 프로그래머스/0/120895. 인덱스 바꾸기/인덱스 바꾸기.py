@@ -1,12 +1,4 @@
 def solution(my_string, num1, num2):
-    answer = ''
-    
-    for i, s in enumerate(my_string):
-        if i == num1:
-            answer += my_string[num2]
-        elif i == num2:
-            answer += my_string[num1]
-        else:
-            answer += s
-    
-    return answer
+    a = min(num1, num2)
+    b = max(num1, num2)
+    return my_string[:a] + my_string[b] + my_string[a+1:b] + my_string[a] + my_string[b+1:] 
