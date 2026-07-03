@@ -1,2 +1,3 @@
 def solution(emergency):
-    return [sorted(emergency, reverse=True).index(e)+1 for e in emergency]
+    sorted_list = sorted(emergency, reverse=True)
+    return [sorted_list.index(e)+1 for e in emergency]
