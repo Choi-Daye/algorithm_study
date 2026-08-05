@@ -1,26 +1,25 @@
 def solution(polynomial):
     x, c = 0, 0
+    answer = ''
     
-    for p in polynomial.split():
-        if p == '+':
-            continue
-        elif 'x' in p:
-            if p == 'x':
-                x += 1
-            else:
-                x += int(p[:-1])
+    for p in polynomial.split(' + '):
+        if 'x' in p:
+            coef = p.replace('x','') or '1'
+            x += int(coef)
         else:
-            c += int(p)
-                
-    if x != 0 and c != 0:
-        if x == 1:
-            return 'x + ' + str(c)
+            c += int(p)         
+    
+    if x == 1:
+        answer += 'x'
+    elif x > 1:
+        answer += str(x)+'x'
+    # else:
+    #     continue
+        
+    if c > 0:
+        if answer:
+            answer += ' + '+str(c)
         else:
-            return str(x) + 'x + ' + str(c)
-    elif x == 0:
-        return str(c)
-    elif c == 0:
-        if x == 1:
-            return 'x'
-        else:
-            return str(x) + 'x'
+            answer += str(c)
+        
+    return answer
