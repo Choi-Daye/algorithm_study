@@ -13,8 +13,6 @@ def solution(polynomial):
         answer += 'x'
     elif x > 1:
         answer += str(x)+'x'
-    # else:
-    #     continue
         
     if c > 0:
         if answer:
