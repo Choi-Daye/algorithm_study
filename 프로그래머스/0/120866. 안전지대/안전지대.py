@@ -1,26 +1,16 @@
 def solution(board):
-    list_1 = []
-    answer = 0
-    
-    for i, b in enumerate(board):
-        for j, n in enumerate(b):
-            if n == 1:
-                list_1.append([i,j])
-    
+    tnt = []
     n = len(board)
     
-    for l in list_1:
-        a, b = l
+    for i, row in enumerate(board):
+        for j, col in enumerate(row):
+            if col == 1:
+                tnt.append([i,j])
     
-        for i in range(a-1,a+2):
-            if i < 0 or i >= n:
-                continue
-            for j in range(b-1, b+2):
-                if j < 0 or j >= n:
-                    continue
-                board[i][j] = 1
-
-    for b in board:
-        answer += b.count(0)
+    for r, c in tnt:
+        for i in range(r - 1, r + 2):
+            for j in range(c - 1, c + 2):
+                if 0 <= i < n and 0 <= j < n:
+                    board[i][j] = 1
     
-    return answer
+    return sum(row.count(0) for row in board)
