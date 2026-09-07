@@ -5,7 +5,7 @@ def solution(s, n):
     for i in s:
         if i == ' ':
             answer += ' '
-        elif i == i.upper():
+        elif i.isupper():
             idx = string.find(i.lower())
             answer += string[idx+n].upper()
         else:
