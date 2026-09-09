@@ -1,9 +1,4 @@
+from itertools import combinations
+
 def solution(number):
-    answer = 0
-    
-    for i in range(len(number)):
-        for j in range(i+1, len(number)):
-            for k in range(j+1, len(number)):
-                if not sum([number[i], number[j], number[k]]):
-                    answer += 1
-    return answer
+    return sum([1 for c in list(combinations(number, 3)) if not sum(c)])
